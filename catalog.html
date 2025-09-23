@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Plug - Catalog</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: white;
+      color: #333;
+    }
+
+    /* Header & Nav */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #ddd;
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.8em;
+      color: black;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+      font-size: 1.1em;
+      padding: 6px 0;
+      transition: border-bottom 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      border-bottom: 2px solid black;
+    }
+
+    /* Catalog Heading */
+    .catalog-header {
+      max-width: 1200px;
+      margin: 40px auto 20px auto;
+      padding: 0 20px;
+    }
+    .catalog-header h1 {
+      font-size: 2.8em;
+      font-weight: 700;
+      margin: 0;
+      color: #111;
+    }
+
+    /* Catalog Grid */
+    .catalog-container {
+      max-width: 1200px;
+      margin: 40px auto 80px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      min-height: 420px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-card a {
+      text-decoration: none; /* remove underline */
+      color: inherit;
+      display: block;
+    }
+
+    .product-card h3 {
+      font-weight: 600;
+      font-size: 1.3em;
+      margin: 15px 20px 5px 20px;
+      color: #111;
+    }
+
+    .product-card p {
+      font-weight: 400;
+      font-size: 1.1em;
+      margin: 0 20px 15px 20px;
+      color: #555;
+    }
+
+    .add-to-cart-btn {
+      margin: 0 20px 20px 20px;
+      padding: 12px 20px;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .add-to-cart-btn:hover {
+      background-color: #000;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 20px;
+      border-top: 1px solid #eee;
+      font-size: 0.9em;
+      color: #555;
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">The Plug</a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="catalog.html" class="active">Catalog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="cart.html" class="cart-link">
+          Cart 🛒 <span id="cart-count" style="font-weight:700; color:#000;">0</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div class="catalog-header">
+  <h1>Our Products</h1>
+</div>
+
+<main class="catalog-container">
+  <!-- Product 1 -->
+  <div class="product-card">
+    <a href="wavy-hoodie.html">
+      <img src="img/wavy-hoodie.jpg" alt="The Wavy Hoodie">
+      <h3>The Wavy Hoodie</h3>
+      <p>$80.00</p>
+    </a>
+    <button class="add-to-cart-btn" data-product="Wavy Hoodie" data-price="80.00">Add to Cart</button>
+  </div>
+
+  <!-- Product 2 -->
+  <div class="product-card">
+    <a href="8-ball-hoodie.html">
+      <img src="img/8-ball-hoodie.jpg" alt="The 8-Ball Hoodie">
+      <h3>The 8-Ball Hoodie</h3>
+      <p>$60.00</p>
+    </a>
+    <button class="add-to-cart-btn" data-product="8-Ball Hoodie" data-price="60.00">Add to Cart</button>
+  </div>
+
+<div class="product-card">
+  <a href="4-tune-hoodie.html">
+    <img src="img/4-tune-hoodie.jpg" alt="The 4-tune Hoodie" />
+    <h3>The 4-tune Hoodie</h3>
+    <p>$60.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="4-tune Hoodie" data-price="60.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="3-SD-hoodie.html">
+    <img src="img/3-sd-hoodie.jpg" alt="3-SD Hoodie" />
+    <h3>3-SD Hoodie</h3>
+    <p>$80.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="3-SD Hoodie" data-price="80.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="gold-culture-hoodie.html">
+    <img src="img/gold-culture-hoodie.jpg" alt="Gold Culture Hoodie" />
+    <h3>Gold Culture Hoodie</h3>
+    <p>$60.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Gold Culture Hoodie" data-price="60.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="made-havoc-hoodie.html">
+    <img src="img/made-havoc-hoodie.jpg" alt="Made Havoc Hoodie" />
+    <h3>Made Havoc Hoodie</h3>
+    <p>$60.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Made Havoc Hoodie" data-price="60.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="more-money-fleece.html">
+    <img src="img/more-money-fleece.jpg" alt="More Money Fleece" />
+    <h3>More Money Fleece</h3>
+    <p>$80.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="More Money Fleece" data-price="80.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="retro-goth-hoodie.html">
+    <img src="img/retro-goth-hoodie.jpg" alt="Retro Goth Hoodie" />
+    <h3>Retro Goth Hoodie</h3>
+    <p>$60.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Retro Goth Hoodie" data-price="60.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="camo-hoodie.html">
+    <img src="img/camo-hoodie.jpg" alt="Camo Hoodie" />
+    <h3>Camo Hoodie</h3>
+    <p>$60.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Camo Hoodie" data-price="60.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="camo-pants.html">
+    <img src="img/camo-pants.jpg" alt="Camo Pants" />
+    <h3>Camo Pants</h3>
+    <p>$40.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Camo Pants" data-price="40.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="forum-vondu-sweats.html">
+    <img src="img/forum-vondu-sweats.jpg" alt="Forum Vondu Sweats" />
+    <h3>Forum Vondu Sweats</h3>
+    <p>$60.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Forum Vondu Sweats" data-price="60.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="spiderman-pants.html">
+    <img src="img/spiderman-pants.jpg" alt="Spiderman Pants" />
+    <h3>Spiderman Pants</h3>
+    <p>$50.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Spiderman Pants" data-price="50.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="blossom-pants.html">
+    <img src="img/blossom-pants.jpg" alt="Blossom Pants" />
+    <h3>Blossom Pants</h3>
+    <p>$50.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Blossom Pants" data-price="50.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="goth-pants.html">
+    <img src="img/goth-pants.jpg" alt="Goth Pants" />
+    <h3>Goth Pants</h3>
+    <p>$50.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Goth Pants" data-price="50.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="goth-sweats.html">
+    <img src="img/goth-sweats.jpg" alt="Goth Sweats" />
+    <h3>Goth Sweats</h3>
+    <p>$40.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Goth Sweats" data-price="40.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="baggy-jeans.html">
+    <img src="img/baggy-jeans.jpg" alt="Baggy Jeans" />
+    <h3>Baggy Jeans</h3>
+    <p>$60.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Baggy Jeans" data-price="60.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="protect-joggers.html">
+    <img src="img/protect-joggers.jpg" alt="Protect Joggers" />
+    <h3>Protect Joggers</h3>
+    <p>$40.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Protect Joggers" data-price="40.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="haunted-mound-shirt.html">
+    <img src="img/haunted-mound-shirt.jpg" alt="Haunted Mound Shirt" />
+    <h3>Haunted Mound Shirt</h3>
+    <p>$40.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Haunted Mound Shirt" data-price="40.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="gothic-thorn-shirt.html">
+    <img src="img/gothic-thorn-shirt.jpg" alt="Gothic Thorn Shirt" />
+    <h3>Gothic Thorn Shirt</h3>
+    <p>$50.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Gothic Thorn Shirt" data-price="50.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="old-money-shirt.html">
+    <img src="img/old-money-shirt.jpg" alt="Old Money Shirt" />
+    <h3>Old Money Shirt</h3>
+    <p>$40.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Old Money Shirt" data-price="40.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="baggy-shirt.html">
+    <img src="img/baggy-shirt.jpg" alt="Baggy Shirt" />
+    <h3>Baggy Shirt</h3>
+    <p>$40.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Baggy Shirt" data-price="40.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="frank-ocean-shirt.html">
+    <img src="img/frank-ocean-shirt.jpg" alt="Frank Ocean Shirt" />
+    <h3>Frank Ocean Shirt</h3>
+    <p>$50.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Frank Ocean Shirt" data-price="50.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="33-jersey.html">
+    <img src="img/33-jersey.jpg" alt="33 Jersey" />
+    <h3>33 Jersey</h3>
+    <p>$60.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="33 Jersey" data-price="60.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="protect-shirt.html">
+    <img src="img/protect-shirt.jpg" alt="Protect Shirt" />
+    <h3>Protect Shirt</h3>
+    <p>$40.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Protect Shirt" data-price="40.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="trust-none-shirt.html">
+    <img src="img/trust-none-shirt.jpg" alt="Trust None Shirt" />
+    <h3>Trust None Shirt</h3>
+    <p>$50.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Trust None Shirt" data-price="50.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="album-cover-shirts.html">
+    <img src="img/album-cover-shirt.jpg" alt="Album Cover Shirts" />
+    <h3>Album Cover Shirts</h3>
+    <p>$40.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Album Cover Shirts" data-price="40.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="pink-graphic-shorts.html">
+    <img src="img/pink-graphic-shorts.jpg" alt="Pink Graphic Shorts" />
+    <h3>Pink Graphic Shorts</h3>
+    <p>$40.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Pink Graphic Shorts" data-price="40.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="protect-shorts.html">
+    <img src="img/protect-shorts.jpg" alt="Protect Shorts" />
+    <h3>Protect Shorts</h3>
+    <p>$30.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Protect Shorts" data-price="30.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="japanese-denim-shorts.html">
+    <img src="img/japanese-denim-shorts.jpg" alt="Japanese Denim Shorts" />
+    <h3>Japanese Denim Shorts</h3>
+    <p>$50.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Japanese Denim Shorts" data-price="50.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="camo-shorts.html">
+    <img src="img/camo-shorts.jpg" alt="Camo Shorts" />
+    <h3>Camo Shorts</h3>
+    <p>$40.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Camo Shorts" data-price="40.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="sani-shorts.html">
+    <img src="img/sani-shorts.jpg" alt="Sani Shorts" />
+    <h3>Sani Shorts</h3>
+    <p>$50.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Sani Shorts" data-price="50.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="droop-ring.html">
+    <img src="img/droop-ring.jpg" alt="Droop Ring" />
+    <h3>Droop Ring</h3>
+    <p>$30.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Droop Ring" data-price="30.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="starz-ring.html">
+    <img src="img/starz-ring.jpg" alt="Starz Ring" />
+    <h3>Starz Ring</h3>
+    <p>$20.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Starz Ring" data-price="20.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="e-d-belt.html">
+    <img src="img/e-d-belt.jpg" alt="E-D Belt" />
+    <h3>E-D Belt</h3>
+    <p>$30.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="E-D Belt" data-price="30.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="star-belt.html">
+    <img src="img/star-belt.jpg" alt="Star Belt" />
+    <h3>Star Belt</h3>
+    <p>$30.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Star Belt" data-price="30.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="webz-hat.html">
+    <img src="img/webz-hat.jpg" alt="Webz Hat" />
+    <h3>Webz Hat</h3>
+    <p>$30.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Webz Hat" data-price="30.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="mea-culpas-hat.html">
+    <img src="img/mea-culpas-hat.jpg" alt="Mea Culpas Hat" />
+    <h3>Mea Culpas Hat</h3>
+    <p>$30.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Mea Culpas Hat" data-price="30.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="gravity-visions-hat.html">
+    <img src="img/gravity-visions-hat.jpg" alt="Gravity Visions Hat" />
+    <h3>Gravity Visions Hat</h3>
+    <p>$30.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="Gravity Visions Hat" data-price="30.00">Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <a href="8-ball-hat.html">
+    <img src="img/8-ball-hat.jpg" alt="8-Ball Hat" />
+    <h3>8-Ball Hat</h3>
+    <p>$30.00</p>
+  </a>
+  <button class="add-to-cart-btn" data-product="8-Ball Hat" data-price="30.00">Add to Cart</button>
+</div>
+
+  <!-- Add more products here -->
+</main>
+
+<footer>
+  &copy; 2025 The Plug. All Rights Reserved.
+</footer>
+
+<script>
+  // Load cart from localStorage or start empty
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  function updateCartCount() {
+    const cartCount = document.getElementById("cart-count");
+    if (!cartCount) return;
+    let totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+    cartCount.textContent = totalItems;
+  }
+
+  function addToCart(product, price) {
+    price = parseFloat(price);
+    const existingItem = cart.find(item => item.product === product);
+    if (existingItem) {
+      existingItem.qty += 1;
+    } else {
+      cart.push({ product, price, qty: 1 });
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert(`${product} added to cart ✅`);
+  }
+
+  document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const product = button.dataset.product;
+      const price = button.dataset.price;
+      addToCart(product, price);
+    });
+  });
+
+  // Update count on page load
+  updateCartCount();
+</script>
+
+</body>
+</html>
