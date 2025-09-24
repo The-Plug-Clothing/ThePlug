@@ -173,4 +173,36 @@ footer {
   margin: 0;
 }
 
+/* === RESPONSIVE FIXES === */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr; /* one product per row */
+    gap: 20px;
+  }
+
+  .product-card img {
+    height: 220px; /* smaller image on mobile */
+  }
+}
 
